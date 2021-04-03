@@ -31,8 +31,8 @@ class API {
 
 
             let wallet = new Portfolio("ETH/BTC");
-            wallet.deposit(1000/59245.90, 59245.90, 1);
-            wallet.deposit(1000/2105, 2105, 0);
+            wallet.deposit(1000/59075.90, 59075.90, 1);
+            wallet.deposit(1000/2088, 2088, 0);
             let tempWallet = wallet.clone();
 
             btc.onTick((tick) => {

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "cross-env START=1 node server.js",
     "server": "node server.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\""
@@ -13,5 +14,8 @@
   "dependencies": {
     "ccxt": "^1.45.97",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
