@@ -1,7 +1,8 @@
 const fs = require('fs');
 
-class Portfolio {
+class Portfolio extends Metrics {
     constructor(symbol, amount = [0, 0]) {
+        super();
         this.symbol = symbol;
         this.amount = amount;
         this.buyPrice = [0, 0];
