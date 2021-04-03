@@ -5,8 +5,9 @@ const Portfolio = require ('./services/Portfolio');
 
 class API {
 
-    constructor () {
+    constructor (delay = 20000) {
         this.state = {};
+        this.delay = parseInt(delay);
     }
 
     start() {
@@ -26,7 +27,7 @@ class API {
 
             await binanceAPI.loadMarkets()
 
-            let btc = new Combo("ETH/BTC", "BTC/USDT", "ETH/USDT", binanceAPI, 20000, 10);
+            let btc = new Combo("ETH/BTC", "BTC/USDT", "ETH/USDT", binanceAPI, self.delay, 10);
 
 
             let wallet = new Portfolio("ETH/BTC");

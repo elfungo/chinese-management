@@ -1,6 +1,7 @@
 const express = require('express')
 const API = require('./api');
-const api = new API();
+const delay = process.env.DELAY;
+const api = new API(delay);
 const app = express()
 const port = process.env.PORT || 3000
 
