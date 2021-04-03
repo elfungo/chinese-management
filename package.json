@@ -7,7 +7,9 @@
     "dev": "cross-env START=1 node server.js",
     "server": "node server.js",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\""
+    "test": "jest",
+    "updatesn": "jest -u",
+    "watchntest": "nodemon --exec \"npm run test\""
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +18,8 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7"
   }
 }

@@ -6,7 +6,7 @@ const Portfolio = require ('./services/Portfolio');
 (async () => {
 
 
-let binanceAPI    = new ccxt.binance ()
+let binanceAPI   = new ccxt.binance ()
 
 
 const exchangeId = 'binance'
