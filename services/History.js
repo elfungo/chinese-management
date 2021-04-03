@@ -17,15 +17,16 @@ class History {
         return await this.api.fetch2('historicalTrades', 'public', 'GET', data, headers);
     }
 
-    async getHistory(trades) {
+    async getHistory(trades, fromId) {
         const pages = trades/this.limit;
-        let current = undefined;
+        let current = fromId;
         this.history = [];
         for(let i = 0; i < pages; i++) {
             let data = await this.getHistoryAt(this.limit, current);
             current = data[0].id;
             this.history.push(data);
         }
+        return this.history;
     }
 
 
