@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "node server.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ccxt": "^1.45.97"
+    "ccxt": "^1.45.97",
+    "express": "^4.17.1"
   }
 }
