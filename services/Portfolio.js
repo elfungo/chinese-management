@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 class Portfolio {
     constructor(symbol, amount = [0, 0]) {
         this.symbol = symbol;
@@ -5,7 +7,7 @@ class Portfolio {
         this.buyPrice = [0, 0];
     }
 
-    load(amount, price, position = 1) {
+    deposit(amount, price, position = 1) {
         this.amount[position] += amount; 
         this.buyPrice[position] = price;
     }
@@ -98,6 +100,8 @@ class Portfolio {
             wallet.buy(orderValue, prices);
         }
 
+        this.save();
+
         return {
             buyValue,
             value,
@@ -107,6 +111,31 @@ class Portfolio {
             orderValue,
             orderType,
             amounts: [...wallet.amount]
+        }
+    }
+
+    save() {
+        const jsonData = {
+            symbol: this.symbol,
+            amount: this.amount,
+            buyPrice: this.buyPrice,
+        }
+        fs.writeFile(__dirname + `/../symbols/${this.symbol.replace('/', '')}.json`, JSON.stringify(jsonData), function(err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+    }
+
+    load(symbol = "ETH/BTC") {
+        const data = fs.readFileSync( __dirname + `/../symbols/${symbol.replace('/', '')}.json`);
+        try {
+            let json = JSON.parse(data);
+            this.symbol = json.symbol;
+            this.amount = json.amount;
+            this.buyPrice = json.buyPrice;
+        } catch (e) {
+            console.log("Cannot load " + data);
         }
     }
 }

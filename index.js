@@ -24,8 +24,8 @@ let btc = new Combo("ETH/BTC", "BTC/USDT", "ETH/USDT", binanceAPI, 20000, 10);
 
 
 let wallet = new Portfolio("ETH/BTC");
-wallet.load(50, 2000, 0);
-wallet.load(100/59, 59000, 1);
+wallet.deposit(50, 2000, 0);
+wallet.deposit(100/59, 59000, 1);
 let tempWallet = wallet.clone();
 
 btc.onTick((tick) => {

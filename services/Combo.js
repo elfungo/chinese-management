@@ -38,7 +38,7 @@ class Combo {
     };
 
     tick() {
-        this.timerId = setInterval(this.update, this.interval);
+        this.timerId = setInterval(this.update.bind(this), this.interval);
         this.update()
     }
     
