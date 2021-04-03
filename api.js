@@ -30,8 +30,8 @@ class API {
 
 
             let wallet = new Portfolio("ETH/BTC");
-            wallet.deposit(45, 2200, 0);
-            wallet.deposit(100/59, 55000, 1);
+            wallet.deposit(1000/59245.90, 59245.90, 1);
+            wallet.deposit(1000/2105, 2105, 0);
             let tempWallet = wallet.clone();
 
             btc.onTick((tick) => {
@@ -39,9 +39,9 @@ class API {
                 const prices = [tick['ETH/USDT'].last, tick['BTC/USDT'].last, tick['ETH/BTC'].last];
                 const data = wallet.ai(prices);
 
-                console.log("---- WALLET ----");
-                console.log(`ETH : ${wallet.amount[0]}`);
-                console.log(`BTC : ${wallet.amount[1]}`);
+                // console.log("---- WALLET ----");
+                // console.log(`ETH : ${wallet.amount[0]}`);
+                // console.log(`BTC : ${wallet.amount[1]}`);
                 self.state = data;
             });
             btc.tick();
