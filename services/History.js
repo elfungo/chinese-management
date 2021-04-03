@@ -5,6 +5,7 @@ class History {
         this.api = api;
         this.symbol = symbol;
         this.limit = limit;
+        this.history = [];
     }
 
     async getHistoryAt(limit = this.limit, fromId) {
@@ -18,8 +19,12 @@ class History {
 
     async getHistory(trades) {
         const pages = trades/this.limit;
+        let current = undefined;
+        this.history = [];
         for(let i = 0; i < pages; i++) {
-            let data = await this.getHistoryAt();
+            let data = await this.getHistoryAt(this.limit, current);
+            current = data[0].id;
+            this.history.push(data);
         }
     }
 
