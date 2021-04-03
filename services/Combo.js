@@ -28,9 +28,13 @@ class Combo {
         this._onTick && this._onTick(tick);
     }
 
-    update = async() => {
-        this.tick = await this.api.fetchTickers([this.symbol, this.first, this.second]);
-        this.addTick(this.tick);
+    update() {
+        const self = this;
+        async function _update() {
+            self.tick = await self.api.fetchTickers([self.symbol, self.first, self.second]);
+            self.addTick(self.tick);
+        }
+        _update();
     };
 
     tick() {
