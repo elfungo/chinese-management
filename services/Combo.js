@@ -25,7 +25,7 @@ class Combo {
                 tick
             ];
         }
-        this._onTick?.(tick);
+        this._onTick && this._onTick(tick);
     }
 
     update = async() => {
