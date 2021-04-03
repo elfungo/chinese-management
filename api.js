@@ -50,7 +50,7 @@ class API {
         _start();
     }
 
-    stop = () => {
+    stop() {
         this.comboCrawler.stop();
     }
 }
