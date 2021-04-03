@@ -21,7 +21,7 @@ class Ticker {
                 tick
             ];
         }
-        this._onTick?.(tick);
+        this._onTick && this._onTick(tick);
     }
 
     update = async() => {
